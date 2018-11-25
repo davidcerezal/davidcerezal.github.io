@@ -27,6 +27,7 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 theme: jekyll-theme-architects
+remote_theme: jekyll-theme-architect
 plugins:
   - jekyll-feed
 
