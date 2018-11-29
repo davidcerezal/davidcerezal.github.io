@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "es-ES"
@@ -110,9 +110,9 @@ hacerlo con un porqué."
   location         : "Madrid"
   email            : "david.cerezal77@gmail.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:david.cerezal77@gmail.com
+   # - label: "Email"
+    #  icon: "fas fa-fw fa-envelope-square"
+     # url: mailto:david.cerezal77@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -126,7 +126,7 @@ hacerlo con un porqué."
       icon: "fab fa-fw fa-github"
       url: "https://github.com/davidcerezal"
     - label: "Flickr"
-      icon: "fab fa-fw fa-instagram"
+      icon: "fab fa-fw fa-flickr"
       url: "https://www.flickr.com/photos/158256218@N06/"
 
 # Site Footer
@@ -142,7 +142,7 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/davidcerezal"
     - label: "Flickr"
-      icon: "fab fa-fw fa-gitlab"
+      icon: "fab fa-fw fa-flickr"
       url: "https://www.flickr.com/photos/158256218@N06/"
     - label: "Bitbucket"
       icon: "fab fa-fw fa-bitbucket"
@@ -288,6 +288,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true
       share: true
       related: true

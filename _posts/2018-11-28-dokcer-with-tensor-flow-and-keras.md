@@ -2,7 +2,7 @@
 title: "Layout: Header Image and Text Readability"
 header:
   image: /assets/images/tensorandocker.jpg
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)" 
 tags: 
   - sample post
   - readability
