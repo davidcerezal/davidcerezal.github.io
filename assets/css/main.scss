@@ -5,7 +5,14 @@
 
 @charset "utf-8";
 
-$masthead-link-color: #435058;
-
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+$masthead-link-color: red;
+
+$serif              : "Avenir Next LT Pro Regular", Georgia, Times, serif;
+$sans-serif-narrow  : "Avenir Next LT Pro Demi", -apple-system, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+
+$global-font-family: $sans-serif-narrow;
+$header-font-family: $sans-serif-narrow !default;
+$caption-font-family: $serif !default;
