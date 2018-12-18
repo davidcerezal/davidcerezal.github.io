@@ -1,3 +1,4 @@
 .masthead__menu-item {
   font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif;
+  font-size: $type-size-4;
 }
