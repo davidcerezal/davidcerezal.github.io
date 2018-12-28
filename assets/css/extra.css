@@ -2,3 +2,19 @@
   font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif;
   font-size: $type-size-4;
 }
+
+.sidebar .author__content {
+   font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
+}
+
+.sidebar p {
+   font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
+}
+
+a:visited {
+	color: #488286;
+}
+
+.greedy-nav .visible-links a:before {
+    background: #DCF763 !important;
+}

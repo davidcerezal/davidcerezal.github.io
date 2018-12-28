@@ -1,9 +1,8 @@
 ---
-title: Portfolio
+title: Blog
 layout: posts
 permalink: /blog/
 author_profile: true
 collection: posts
-entries_layout: grid
 classes: wide
 ---
