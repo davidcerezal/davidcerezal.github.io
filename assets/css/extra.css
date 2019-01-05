@@ -16,6 +16,59 @@
     --main-color-link-hover:#225216;
 }
 
+.page-with-out-sidebar {
+	width: calc(100% - 150px) !important;
+	padding-right: 150px;
+}
+
+.archive {
+	width: calc(100% - 100px) !important;
+}
+
+@media only screen and (max-width: 1000px) {
+	.page-with-out-sidebar {
+		float: right;
+		width: calc(100% - 70px) !important;
+		padding-right: 70px;
+		font-size: 0.9em;
+	}
+
+	.archive {
+		float: right;
+		padding-right: 70px;
+		width: calc(100% - 70px) !important;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.page-with-out-sidebar {
+		float: right;
+		width: calc(100% - 40px) !important;
+		padding-right: 40px;
+		font-size: 0.8em;
+	}
+
+	.archive {
+		float: right;
+		padding-right: 40px;
+		width: calc(100% - 40px) !important;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.page-with-out-sidebar {
+		float: right;
+		width: calc(100% - 10px) !important;
+		padding-right: 10px;
+	}
+
+	.archive {
+		float: right;
+		padding-right: 10px;
+		width: calc(100% - 10px) !important;
+	}
+}
+
 .page__content a , .archive__item a {
 	color: var(--main-color-link) !important;
 }
