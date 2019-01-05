@@ -4,63 +4,57 @@ layout: splash
 date: 2016-03-23T11:48:41-04:00
 header:
   overlay_color: "#000"
-  overlay_filter: "0.5"
-  overlay_image: /assets/images/unsplash-image-1.jpg
+  overlay_filter: "0.3"
+  overlay_image: /assets/images/back-intro-green.jpg
   actions:
-    - label: "Download"
-      url: "https://github.com/mmistakes/minimal-mistakes/"
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-excerpt: "Bacon ipsum dolor sit amet salami ham hock ham, hamburger corned beef short ribs kielbasa biltong t-bone drumstick tri-tip tail sirloin pork chop."
+    - label: "Ir al Blog"
+      url: "/blog"
+excerpt: "Kaixo!, I’m David. I’m a software engineer living in Madrid.
+Obsessed with making my own tiny contribution to this world, but doing it with a reason."
 intro: 
-  - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
+  - excerpt: 'Since some years, I have set myself goals such as creating new projects, go in-depth in the spirit of the entrepreneur and be in constant development. For now I have a lot to learn, and I hope that it will always continue; while I am trying to get these goals I work as BackEnd Developer in Indexa Capital, in which I learn from the bests. In the little free time I have left. `type="center"`'
+intro2: 
+  - excerpt: 'Since some years, I have set myself goals such as creating new projects, go in-depth in the spirit of the entrepreneur and be in constant development. For now I have a lot to learn, and I hope that it will always continue; while I am trying to get these goals I work as BackEnd Developer in Indexa Capital, in which I learn from the bests. In the little free time I have left.'  
 feature_row:
-  - image_path: assets/images/unsplash-gallery-image-1-th.jpg
-    alt: "placeholder image 1"
-    title: "Placeholder 1"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
-    image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
-    alt: "placeholder image 2"
-    title: "Placeholder 2"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: "#test-link"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-  - image_path: /assets/images/unsplash-gallery-image-3-th.jpg
-    title: "Placeholder 3"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+  - image_path: assets/images/tensorandocker.jpg
+    alt: "TensorFlow y Docker"
+    title: "TensorFlow y Docker"
+    excerpt: "Cómo desplegar una máquina en docker para **TensorFlow**. Containerize it!"
+    url: "/dokcer-with-tensor-flow-and-keras/"
+  - image_path: /assets/images/space-sun.jpg
+    alt: "Origen. Revolución cognitiva."
+    title: "Origen. Revolución cognitiva."
+    excerpt: "Siempre me gusta fantasear con la idea de que existió un momento perdido en nuestra humanidad, en el cual existió una chispa que comenzó  nuestro origen como humanos..."
+    url: "/inicio/"
+  - image_path: /assets/images/wordpress-intro.png
+    alt: "Página web con WordPress gratis"
+    title: "Página web con WordPress gratis"
+    excerpt: "¿Has pensando en alguna vez en crear **tu propia** página bajo un dominio personalizado?"
+    url: "/como-crear-maquina-web-con-wordpress-gratis/"
 feature_row2:
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
-    alt: "placeholder image 2"
-    title: "Placeholder Image Left Aligned"
-    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Left aligned with `type="left"`'
-    url: "#test-link"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
+  - image_path: /assets/images/space-sun.jpg
+    alt: "Origen. Revolución cognitiva."
+    title: "Origen. Revolución cognitiva."
+    excerpt: "Siempre me gusta fantasear con la idea de que existió un momento perdido en nuestra humanidad, en el cual existió una chispa que comenzó  nuestro origen como humanos..."
+    url: "/inicio/"
+    btn_label: "Leer más..."
+    btn_class: "btn-border-grey"
 feature_row3:
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
-    alt: "placeholder image 2"
-    title: "Placeholder Image Right Aligned"
-    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Right aligned with `type="right"`'
-    url: "#test-link"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
-feature_row4:
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
-    alt: "placeholder image 2"
-    title: "Placeholder Image Center Aligned"
-    excerpt: 'This is some sample content that goes here with **Markdown** formatting. Centered with `type="center"`'
-    url: "#test-link"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
+  - image_path: assets/images/tensorandocker.jpg
+    alt: "TensorFlow y Docker"
+    title: "TensorFlow y Docker"
+    excerpt: "Cómo desplegar una máquina en docker para **TensorFlow**. Containerize it!"
+    url: "/dokcer-with-tensor-flow-and-keras/"
+    btn_label: "Leer más..."
+    btn_class: "btn-border-grey"
 ---
 
 {% include feature_row id="intro" type="center" %}
 
 {% include feature_row %}
 
+{% include feature_row id="intro2" type="center" %}
+
 {% include feature_row id="feature_row2" type="left" %}
 
 {% include feature_row id="feature_row3" type="right" %}
-
-{% include feature_row id="feature_row4" type="center" %}

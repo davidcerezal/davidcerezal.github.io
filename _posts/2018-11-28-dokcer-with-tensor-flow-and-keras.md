@@ -1,49 +1,135 @@
 ---
-title: "Layout: Header Image and Text Readability"
+title: "Cómo desplegar una máquina en docker para TensorFlow. Containerize it!"
 header:
   image: /assets/images/tensorandocker.jpg
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)" 
 tags: 
-  - sample post
-  - readability
-  - test
+  - Tensor
+  - Docker
+  - Deep Learning
 ---
 
-This is a sample post with a large feature image[^1] up top and tons of text. Odio ad blue bottle vinyl, 90's narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney's. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.
+Cómo desplegar una máquina en docker para TensorFlow. Containerize it!
+Publicado en octubre 6, 2018 por admin
 
-Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. *Ea fashion axe [Marfa cillum aliquip](#). Retro Bushwick keytar cliche.* Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.
+RSSFollow by EmailFacebookTwitterLinkedIn
+Hoy vamos a crear una máquina virtual apta para operar con TensorFlow y Keras, basado en el libro “DeepLearning with Keras”. Para ello nos basaremos en Docker, una herramienta que nos permite automatizar el despliegue de aplicaciones dentro de contenedores de software, proporcionando una capa adicional de abstracción y automatización de virtualización de aplicaciones en múltiples sistemas operativos. Recomendaría primero, si eres nuevo en docker, familiarizarte con los comandos de docker y para qué sirve esta herramienta, ya que si has llegado hasta aquí hay muchas probabilidades de que lo utilices en un futuro, así que por qué no empezar ahora:
 
-## Cupidatat 90's lo-fi authentic try-hard
+Los pasos que vamos a seguir van a ser:
 
-In pug Portland incididunt mlkshk put a bird on it vinyl quinoa. **[Terry Richardson](#) shabby chic +1**, scenester Tonx excepteur tempor fugiat voluptate fingerstache aliquip nisi next level. Farm-to-table hashtag Truffaut, Odd Future ex meggings gentrify single-origin coffee try-hard 90's.
+Buscar una máquina de docker adecuada
+Instalar y probar esta máquina.
+Customizar nuestra máquina con nuestras dependencias
+Subirla de Dockerhub ( el servicio de nube de docker) para tenerla siempre lista cada vez que la queramos utilizar.
+1.- Buscar una máquina de docker adecuada.
+Para este caso queremos preparar una máquina para usar Keras, esta es una librería que nos sirve para trabajar con redes neuronales de una manera más sencilla. Esta corre “On-Top” sobre  TensorFlow, CNTK, or Theano. Por ello mismo, este mismo ejemplo es extensible para preparar una máquina de Tensor-Flow, podríamos utilizar esta misma máquina o eliminar Keras en esta para tener una solución mas “light”. Dado que probablemente ya exista una máquina con estos requerimientos buscamos una, la encontramos rápidamente aquí:
 
-  * Sartorial hoodie
-  * Labore viral forage
-  * Tote bag selvage
-  * DIY exercitation et id ugh tumblr church-key
+https://github.com/gw0/docker-keras
 
-Incididunt umami sriracha, ethical fugiat VHS ex assumenda yr irure direct trade. Marfa Truffaut bicycle rights, kitsch placeat Etsy kogi asymmetrical. Beard locavore flexitarian, kitsch photo booth hoodie plaid ethical readymade leggings yr.
+Esta nos permite instalar diferentes versiones de keras, tensorFlow, CNTK o Theano, en GPU o CPU. Nosotros elegiremos TensorFlow y Keras ya que es la que vamos a utilizar, y GPU/CPU en función de nuestro Hardware.
 
-Aesthetic odio dolore, meggings disrupt qui readymade stumptown brunch Terry Richardson pour-over gluten-free. Banksy american apparel in selfies, biodiesel flexitarian organic meh wolf quinoa gentrify banjo kogi. Readymade tofu ex, scenester dolor umami fingerstache occaecat fashion axe Carles jean shorts minim. Keffiyeh fashion axe nisi Godard mlkshk dolore. Lomo you probably haven't heard of them eu non, Odd Future Truffaut pug keytar meggings McSweeney's Pinterest cred. Etsy literally aute esse, eu bicycle rights qui meggings fanny pack. Gentrify leggings pug flannel duis.
 
-## Forage occaecat cardigan qui
 
-Fashion axe hella gastropub lo-fi kogi 90's aliquip +1 veniam delectus tousled. Cred sriracha locavore gastropub kale chips, iPhone mollit sartorial. Anim dolore 8-bit, pork belly dolor photo booth aute flannel small batch. Dolor disrupt ennui, tattooed whatever salvia Banksy sartorial roof party selfies raw denim sint meh pour-over. Ennui eu cardigan sint, gentrify iPhone cornhole.
+2.- Instalación y prueba
+Primero debemos instalar docker en nuestro ordenador. Para ello seguiremos su magnífica documentación, también se recomienda crear una cuenta DockerHub ya que la vamos a utilizar en un posterior uso. Bien, una vez tenemos instalado docker y corriendo en nuestro ordenador, podemos descargar / traer la máquina deseada. Nosotros nos vamos a traer la versión keras:2.1.4-py3.
 
-> Whatever velit occaecat quis deserunt gastropub, leggings elit tousled roof party 3 wolf moon kogi pug blue bottle ea. Fashion axe shabby chic Austin quinoa pickled laborum bitters next level, disrupt deep v accusamus non fingerstache.
+Lo podemos ejecutar con el comando, en el que tendremos que ver el progreso de la descarga.
 
-Tote bag asymmetrical elit sunt. Occaecat authentic Marfa, hella McSweeney's next level irure veniam master cleanse. Sed hoodie letterpress artisan wolf leggings, 3 wolf moon commodo ullamco. Anim occupy ea labore Terry Richardson. Tofu ex master cleanse in whatever pitchfork banh mi, occupy fugiat fanny pack Austin authentic. Magna fugiat 3 wolf moon, labore McSweeney's sustainable vero consectetur. Gluten-free disrupt enim, aesthetic fugiat jean shorts trust fund keffiyeh magna try-hard.
+dcerezal$ docker pull gw000/keras:2.1.4-py3
+Al acabar esto, podemos ejecutar, el siguiente comando en el que debería aparecer nuestra imagen de la nueva máquina docker.
 
-## Hoodie Duis
+:~ dcerezal$ docker images
+REPOSITORY          TAG       IMAGE ID            CREATED SIZE
+gw000/keras         2.1.4-py3 24f176f13436        7 months ago 927MB
+Ahora que tenemos nuestra imagen de la máquina la debemos ejecutar, por ejemplo, podemos acceder al bash de esta máquina. Para ello utilizaremos el comando docker run que pondrá en funcionamiento una instancia de esta máquina.
 
-Actually salvia consectetur, hoodie duis lomo YOLO sunt sriracha. Aute pop-up brunch farm-to-table odio, salvia irure occaecat. Sriracha small batch literally skateboard. Echo Park nihil hoodie, aliquip forage artisan laboris. Trust fund reprehenderit nulla locavore. Stumptown raw denim kitsch, keffiyeh nulla twee dreamcatcher fanny pack ullamco 90's pop-up est culpa farm-to-table. Selfies 8-bit do pug odio.
+docker run -it --rm -v $(pwd):/srv gw000/keras:2.1.4-py3 bash
+A lo que nos cambiará la interfaz de la consola a la del Bash  de la máquina:
 
-### Thundercats Ho!
+root@baff3ed84d6b:/srv#
+Aquí para ver que todo funciona correctamente, podemos ejecutar python3 para ver que esta correctamente instalado, y dentro de aquí ver que está instalado tensorFlow.
 
-Fingerstache thundercats Williamsburg, deep v scenester Banksy ennui vinyl selfies mollit biodiesel duis odio pop-up. Banksy 3 wolf moon try-hard, sapiente enim stumptown deep v ad letterpress. Squid beard brunch, exercitation raw denim yr sint direct trade. Raw denim narwhal id, flannel DIY McSweeney's seitan. Letterpress artisan bespoke accusamus, meggings laboris consequat Truffaut qui in seitan. Sustainable cornhole Schlitz, twee Cosby sweater banh mi deep v forage letterpress flannel whatever keffiyeh. Sartorial cred irure, semiotics ethical sed blue bottle nihil letterpress.
+~ dcerezal$ docker run -it --rm -v $(pwd):/srv gw000/keras:2.1.4-py3 bash
+root@baff3ed84d6b:/srv# python3
+Python 3.5.3…..
+>>> import keras
+Using TensorFlow backend.
+Este mensaje de “Using TensorFlow backend.” nos confirma que nuestra máquina es correcta y preparada para el uso de Keras.
 
-Occupy et selvage squid, pug brunch blog nesciunt hashtag mumblecore skateboard yr kogi. Ugh small batch swag four loko. Fap post-ironic qui tote bag farm-to-table american apparel scenester keffiyeh vero, swag non pour-over gentrify authentic pitchfork. Schlitz scenester lo-fi voluptate, tote bag irony bicycle rights pariatur vero Vice freegan wayfarers exercitation nisi shoreditch. Chambray tofu vero sed. Street art swag literally leggings, Cosby sweater mixtape PBR lomo Banksy non in pitchfork ennui McSweeney's selfies. Odd Future Banksy non authentic.
+ 
 
-Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.
+3.- Customizamos nuestra máquina con nuestras extensiones.
+ 
+
+Supongamos que como en este ejemplo, hemos encontrado una máquina apta para nosotros, pero queremos instalarle alguna dependencia más, por ejemplo pip, matlibplot… Lo que se nos ocurra, es nuestra propia máquina.
+
+Para ello seguiremos los siguientes pasos:
+
+Entramos en la máquina en cuestión e instalamos lo que necesitemos. 
+
+sudo apt-get install python-pip
+pip3 install matlibplot
+Ahora que tenemos nuestras dependencias extras instaladas, sin cerrar esta ventana de la terminal, abrimos una nueva venta de la terminal. Aquí ejecutamos:
+
+MacBook-Air-de-David:~ dcerezal$ docker ps
+CONTAINER ID        IMAGE  COMMAND CREATED             STATUS PORTS NAMES
+65b3e16edbb7        cerezal77/keras:0.2  "bash" 5 seconds ago       Up 4 seconds hardcore_swanson
+Nos debería de devolver la instancia y el container ID de la máquina que ahora mismo tenemos en uso. Utilizaremos ese container ID para “copiar” esta máquina a la nuestra propia. Para crear esta nueva máquina utilizaremos el commit,  docker commit -m “Mensaje” -a “” `docker ps -l -q`  nombre:del:tag
+al proporcionarle un nuevo “nombre:del:tag” nos creará una nueva máquina aquí.
+
+docker commit 65b3e16edbb7 cerezal77/keras:0.1
+Nosotros la hemos creado con este nombre. Debemos utilizar el mismo que después crearemos, o hemos creado como nombre del repo en docker hub.
+
+
+
+Después de este commit, si ejecutamos el comando de Docker images, veremos nuestra nueva imagen de docker creada. 
+
+MacBook-Air-de-David:~ dcerezal$ docker images
+REPOSITORY          TAG IMAGE ID            CREATED SIZE
+cerezal77/keras     0.1 1d3b5958addd        6 days ago 1.02GB
+gw000/keras         2.1.4-py3 24f176f13436        7 months ago 927MB
+
+Tip: Si hemos instalado cosas nuevas o realizado cambios el size debería ser diferente del anterior.
+
+ 
+
+4.- Subimos esta máquina a nuestro docker hub
+ 
+
+Para subir esta nueva máquina a nuestro repo de docker hub lo haremos utilizando el comando de:
+
+docker push cerezal77/keras:0.2
+ 
+
+Y en nuestro repo de docker hub deberíamos de ver algo así:
+
+
+
+Y ya estaría nuestra nueva máquina preparada para el uso en cualquier lugar con el simple comando de docker pull cerezal77/keras:0.2. Para probarlo de verdad podemos probar a borrar nuestras máquinas actuales, descargarla de nuevo, ejecutarla y ver que tiene las dependencias que hemos instalado.  Esto elimina todas las instancias de máquinas que actualmente tenemos en nuestro docker local si luego ejecutamos “docker ps” debería aparecer vacío.
+
+docker rm $(docker ps -a -q)
+MacBook-Air-de-David:~ dcerezal$ docker ps
+CONTAINER ID        IMAGE COMMAND             CREATED STATUS PORTS               NAMES
+Este comando elimina todas las imágenes de máquinas que actualmente tenemos en nuestro docker local si luego ejecutamos “docker images” debería aparecer vacío.
+
+docker rmi $(docker images -q)
+MacBook-Air-de-David:~ dcerezal$ docker images
+REPOSITORY          TAG IMAGE ID            CREATED SIZE
+Bien ahora ejecutamos nuestro pull para descargar la máquina. Y por ejemplo ejecutamos
+
+docker pull cerezal77/keras:0.1
+MacBook-Air-de-David:~ dcerezal$ docker run -it --rm -v $(pwd):/srv cerezal77/keras:0.2 python3
+Python 3.5.3 (default, Jan 19 2017, 14:11:04)
+[GCC 6.3.0 20170118] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import keras
+Using TensorFlow backend.
+>>> import matplotlib
+>>>
+ 
+
+Y comprobaremos que las dependencias instaladas estan correctamente instaladas. 
+Y ale, a correr y programar!
+
+
 
 [^1]: Texture image courtesty of [Lovetextures](http://www.lovetextures.com/)

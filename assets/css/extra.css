@@ -11,10 +11,66 @@
    font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
 }
 
-a:visited {
-	color: #488286;
+:root {
+    --main-color-link:#6f8f68;
+    --main-color-link-hover:#225216;
 }
 
-.greedy-nav .visible-links a:before {
-    background: #DCF763 !important;
+.page__content a , .archive__item a {
+	color: var(--main-color-link) !important;
 }
+
+.page__content a:visited , .archive__item a:visited {
+	color: var(--main-color-link) !important;
+}
+
+.page__content a:hover , .archive__item a:hover {
+	color: var(--main-color-link-hover) !important;
+}
+
+.pagination--pager {
+	color: var(--main-color-link) !important;
+}
+
+.pagination--pager:hover {
+	color: #FFF !important;
+}
+
+
+.greedy-nav .visible-links a:before {
+    background: #6f8f68 !important;
+}
+
+.post-header {
+	margin-left: -40px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.post-header-sm {
+	margin-left: -35px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.archive__item-teaser {
+	height: 10em;
+}
+
+.archive__item-body {
+	padding-top: 10px;
+}
+
+.btn-border-grey {
+	text-align: center;
+    text-decoration: none;
+    color: var(--main-color-link) !important;
+    border: 1px solid #b6b6b6 !important;
+    border-radius: 4px;
+}
+
+.btn-border-grey:hover {
+	color: #FFF !important;
+}
+
+

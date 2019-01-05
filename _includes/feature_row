@@ -6,15 +6,19 @@
 
 <div class="feature__wrapper">
 
-  {% for f in feature_row %}
 
+  {% for f in feature_row %}
     {% if f.url contains "://" %}
       {% capture f_url %}{{ f.url }}{% endcapture %}
     {% else %}
       {% capture f_url %}{{ f.url | relative_url }}{% endcapture %}
     {% endif %}
 
-    <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
+    <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}"
+    {% if f.url %}
+      onclick="window.location.href='{{ f.url | relative_url }}'"
+    {% endif %} style="cursor: pointer;">
+
       <div class="archive__item">
         {% if f.image_path %}
           <div class="archive__item-teaser">
@@ -42,7 +46,7 @@
             </div>
           {% endif %}
 
-          {% if f.url %}
+          {% if f.btn_label %}
             <p><a href="{{ f_url }}" class="btn {{ f.btn_class }}">{{ f.btn_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
           {% endif %}
         </div>
