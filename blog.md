@@ -1,5 +1,7 @@
 ---
 title: Blog
+seo_title: "Blog"
+seo_description: "Índice de categorías. Blog sobre Tech, IA, historia, filosofía y cada una de mis nuevas pasiones. TensorFlow, Keras, buenas prácticas de programación, DDD, Symfony y PHP... y mucho más"
 layout: posts
 permalink: /blog/
 author_profile: false

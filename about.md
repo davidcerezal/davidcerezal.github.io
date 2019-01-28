@@ -1,6 +1,9 @@
 ---
 layout: single-sidebar
 title: About
+seo_title: "Acerca de"
+seo_description: "Aupa!&nbsp;&nbsp;Soy David,Techie, Geek o {Passion_for_IT_new_adjective_in_trend}.
+Obsesionado con aportar mi grano de arena a este mundo, pero dehacerlo con un porqué."
 permalink: /about/
 author_profile: true
 ---
