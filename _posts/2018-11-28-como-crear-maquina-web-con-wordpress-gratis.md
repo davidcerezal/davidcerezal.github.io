@@ -1,5 +1,6 @@
 ---
 title: "Como crear una página de WordPress gratis (Free Domain + Hosting)"
+author: DavidCerezal
 header:
   image: /assets/images/wordpress-intro.png
 seo_title: "Como crear una página de WordPress gratis (Free Domain + Hosting)"

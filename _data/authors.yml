@@ -1,0 +1,24 @@
+# /_data/authors.yml
+
+DavidCerezal:
+  name        : "David Cerezal Landa"
+  bio         : "Admin del Mono al ordenador. Me fuerzo a escribir porque mi mente es demasiado volatil."
+  avatar      : "/assets/images/yo.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:david.cerezal77@gmail.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/cerezal_david"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
+      url: "https://www.facebook.com/david.cerezallanda"
+Cerecea:
+  name        : "Cerecea"
+  bio         : "Apasionado por la historia, de vez en cuando escribo."
+  avatar      : "/assets/images/castillo.jpeg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:cerezal.david@gmail.com"
