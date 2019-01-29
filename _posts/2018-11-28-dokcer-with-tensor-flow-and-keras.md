@@ -1,5 +1,6 @@
 ---
 title: "Cómo desplegar una máquina en docker para TensorFlow. Containerize it!"
+author: DavidCerezal
 header:
   image: /assets/images/tensorandocker.jpg
 seo_title: "Cómo desplegar una máquina en docker para TensorFlow. Containerize it!"

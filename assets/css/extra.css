@@ -124,4 +124,22 @@
 	color: #FFF !important;
 }
 
+.author__avatar_none{
+	opacity: 0.75;
+	max-width: 50px;
+	vertical-align: top;
+	display: inline-block;
+}
+.author__content_none{
+	padding-top: 5px;
+	vertical-align: top;
+	display: inline-block;
+	width: initial;
+}
+.author__name_none{
+	font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+	font-size: 1em;
+	margin:0px;
+}
+
 

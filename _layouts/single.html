@@ -26,9 +26,15 @@ layout: default
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header class="post-header">
           {% if page.title %}<h1 id="page-title" class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
-          {% if page.read_time %}
-            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
+          <p class="page__meta">
+          {% if page.author %}
+            {% assign author = site.data.authors[page.author] | default: author %}
+            {{ author.name }}
           {% endif %}
+          {% if page.read_time %}
+            <i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}
+          {% endif %}
+          </p>
         </header>
       {% endunless %}
 
@@ -46,6 +52,21 @@ layout: default
       </section>
 
       <footer class="page__meta">
+        {% if page.author %}
+         {% assign author = site.data.authors[page.author] | default: author %}
+         <div class="author" style="padding-bottom: 15px;">
+         <div class="author__avatar_none" >
+            <img src="{{ author.avatar }}" alt="{{ author.name }}" itemprop="image" style="max-width: 100%;">
+        </div>
+        <div class="author__content_none" >
+          <h3 class="author__name_none" itemprop="name" >{{ author.name }}</h3>
+          <p class="author__bio" itemprop="description">
+            {{ author.bio }}
+         </p>
+        </div>
+        </div>
+        {% endif %}
+
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}

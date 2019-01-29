@@ -17,7 +17,7 @@ DavidCerezal:
 Cerecea:
   name        : "Cerecea"
   bio         : "Apasionado por la historia, de vez en cuando escribo."
-  avatar      : "/assets/images/castillo.jpeg"
+  avatar      : "/assets/images/castillo.png"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
