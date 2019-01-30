@@ -11,6 +11,18 @@
    font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
 }
 
+.page__content strong {
+	font-family: "Avenir Next LT Pro Bold";
+}
+
+.f-ligth {
+	font-family: "Avenir Next LT Pro Italic";
+}
+
+.f-extra-ligth {
+	font-family: "Avenir Next LT Pro Ultra Light Condensed";
+}
+
 :root {
     --main-color-link:#6f8f68;
     --main-color-link-hover:#225216;
