@@ -154,4 +154,9 @@
 	margin:0px;
 }
 
+hr {
+	border-top: 1px solid #ccc !important;
+	margin-top: 35px !important;
+}
+
 
