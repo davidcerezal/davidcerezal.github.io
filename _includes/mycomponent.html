@@ -1,0 +1,204 @@
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/assets/css/extra-jupyter.css">
+
+<div class="jpytc"> 
+
+	  <div tabindex="-1" id="notebook" class="border-box-sizing">
+	    <div class="container" id="notebook-container">
+
+	<div class="cell border-box-sizing code_cell rendered">
+	<div class="input">
+	<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+	<div class="inner_cell">
+	    <div class="input_area">
+	<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+	<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+	</pre></div>
+
+	    </div>
+	</div>
+	</div>
+
+	</div>
+	<div class="cell border-box-sizing code_cell rendered">
+	<div class="input">
+	<div class="prompt input_prompt">In&nbsp;[21]:</div>
+	<div class="inner_cell">
+	    <div class="input_area">
+	<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">medias_mayor_que</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">limite</span><span class="p">):</span>
+	    <span class="sd">&quot;&quot;&quot;</span>
+	<span class="sd">    Función que devuelve los nombres de las columnas cuya media es estrictamente superior al límite indicado</span>
+	<span class="sd">    </span>
+	<span class="sd">    PUNTUACIÓN: 2 PUNTOS</span>
+	<span class="sd">    </span>
+	<span class="sd">    Recibe:</span>
+	<span class="sd">        dataframe: Tabla de datos original</span>
+	<span class="sd">        límite: Valor numérico para su comparación</span>
+	<span class="sd">               </span>
+	<span class="sd">    Devuelve:</span>
+	<span class="sd">        lista de strings</span>
+	<span class="sd">        </span>
+	<span class="sd">    &quot;&quot;&quot;</span>
+	<span class="c1">##########################################</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">#       CÓDIGO A IMPLEMENTAR</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">##########################################</span>
+	</pre></div>
+
+	    </div>
+	</div>
+	</div>
+
+	</div>
+	<div class="cell border-box-sizing code_cell rendered">
+	<div class="input">
+	<div class="prompt input_prompt">In&nbsp;[25]:</div>
+	<div class="inner_cell">
+	    <div class="input_area">
+	<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">ordenar_columnas_valor_maximo</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
+	    <span class="sd">&quot;&quot;&quot;</span>
+	<span class="sd">    Devuelve un dataframe con las mismas columnas que el de entrada, pero con sus columnas dispuestas</span>
+	<span class="sd">    según el valor máximo que contenga cada columna, siendo la primera la mayor</span>
+	<span class="sd">    </span>
+	<span class="sd">    PUNTUACIÓN: 2 PUNTOS</span>
+	<span class="sd">    </span>
+	<span class="sd">    Recibe:</span>
+	<span class="sd">        dataframe: Tabla original</span>
+	<span class="sd">        </span>
+	<span class="sd">               </span>
+	<span class="sd">    Devuelve:</span>
+	<span class="sd">        dataframe</span>
+	<span class="sd">    &quot;&quot;&quot;</span>
+	<span class="c1">##########################################</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">#       CÓDIGO A IMPLEMENTAR</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">##########################################</span>
+	</pre></div>
+
+	    </div>
+	</div>
+	</div>
+
+	</div>
+	<div class="cell border-box-sizing code_cell rendered">
+	<div class="input">
+	<div class="prompt input_prompt">In&nbsp;[5]:</div>
+	<div class="inner_cell">
+	    <div class="input_area">
+	<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">ultima_fila</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">etiqueta</span><span class="p">):</span>
+	    <span class="sd">&quot;&quot;&quot;</span>
+	<span class="sd">    Dado un dataframe, devuelve el mismo dataframe añadiendo una última fila aplicando una función a cada una</span>
+	<span class="sd">    de las columnas. El índice, ha de ser convertido a string para poder aplicar la etiqueta pasada como identificador</span>
+	<span class="sd">    de la nueva fila.</span>
+	<span class="sd">    </span>
+	<span class="sd">    PUNTUACIÓN: 2 PUNTOS</span>
+	<span class="sd">    </span>
+	<span class="sd">    Recibe:</span>
+	<span class="sd">        dataframe: El dataframe orignial.</span>
+	<span class="sd">        </span>
+	<span class="sd">        func: Función a aplicar a cada una de las columnas del dataframe original.</span>
+	<span class="sd">       </span>
+	<span class="sd">        etiqueta: Identificador de la nueva fila.</span>
+	<span class="sd">               </span>
+	<span class="sd">    Devuelve:</span>
+	<span class="sd">        Un dataframe</span>
+	<span class="sd">    &quot;&quot;&quot;</span>
+	<span class="c1">##########################################</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">#       CÓDIGO A IMPLEMENTAR</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">##########################################</span>
+	</pre></div>
+
+	    </div>
+	</div>
+	</div>
+
+	</div>
+	<div class="cell border-box-sizing code_cell rendered">
+	<div class="input">
+	<div class="prompt input_prompt">In&nbsp;[20]:</div>
+	<div class="inner_cell">
+	    <div class="input_area">
+	<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">incrementos</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
+	    <span class="sd">&quot;&quot;&quot;</span>
+	<span class="sd">    Dado un dataframe, devuelve un dataframe con las mismas columnas pero con la diferencia entre el valor de una celda</span>
+	<span class="sd">    y la anterior. Ejemplo:</span>
+	<span class="sd">    </span>
+	<span class="sd">    Fecha------|----A----       Fecha------|----A----     </span>
+	<span class="sd">    31/12/2018 |     500   -&gt;   31/12/2018 |     300   </span>
+	<span class="sd">    30/12/2018 |     200        30/12/2018 |      NA</span>
+	<span class="sd">    </span>
+	<span class="sd">    </span>
+	<span class="sd">    PUNTUACIÓN: 2 PUNTOS</span>
+	<span class="sd">    </span>
+	<span class="sd">    Recibe:</span>
+	<span class="sd">        Dataframe: Dataframe orignal</span>
+	<span class="sd">               </span>
+	<span class="sd">    Devuelve:</span>
+	<span class="sd">        Dataframe</span>
+	<span class="sd">    &quot;&quot;&quot;</span>
+	<span class="c1">##########################################</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">#       CÓDIGO A IMPLEMENTAR</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">##########################################</span>
+	</pre></div>
+
+	    </div>
+	</div>
+	</div>
+
+	</div>
+	<div class="cell border-box-sizing code_cell rendered">
+	<div class="input">
+	<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+	<div class="inner_cell">
+	    <div class="input_area">
+	<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">no_nulos</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
+	    <span class="sd">&quot;&quot;&quot;</span>
+	<span class="sd">    Devuelve un dataframe con una fila extra indicando el número de no nulos de cada columna</span>
+	<span class="sd">    </span>
+	<span class="sd">    PUNTUACIÓN: 2 PUNTOS</span>
+	<span class="sd">    </span>
+	<span class="sd">    Recibe: </span>
+	<span class="sd">        </span>
+	<span class="sd">        Dataframe: dataframe original</span>
+	<span class="sd">        </span>
+	<span class="sd">               </span>
+	<span class="sd">    Devuelve:</span>
+	<span class="sd">        Dataframe</span>
+	<span class="sd">        </span>
+	<span class="sd">    &quot;&quot;&quot;</span> 
+	    
+	<span class="c1">##########################################</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">#       CÓDIGO A IMPLEMENTAR</span>
+	<span class="c1">#</span>
+	<span class="c1">#</span>
+	<span class="c1">##########################################</span>
+	</pre></div>
+
+	    </div>
+	</div>
+	</div>
+
+	</div>
+	    </div>
+	  </div>
+</div>
