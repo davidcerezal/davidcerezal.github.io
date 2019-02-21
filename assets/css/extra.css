@@ -40,7 +40,7 @@
 	font-size: 18px;
 }
 
-.page__content  .jpytc p{
+.page__content  .jpytc p, .page__content  .jpytc li{
 	font-size: 14px;
 }
 }
