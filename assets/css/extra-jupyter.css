@@ -16,6 +16,7 @@
 }
 .jpytc {
   margin: 0;
+  margin-left: -13% !important;
 }
 	.jpytc article,
 	.jpytc aside,
@@ -1071,7 +1072,7 @@
   box-sizing: border-box;
 }
 .jpytc {
-  font-size: 12px;
+  font-size: 12px !important;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .jpytc  {
@@ -11404,7 +11405,7 @@ div#notebook_panel {
   height: 100%;
 }
 div#notebook {
-  font-size: 14px;
+  font-size: 14px !important;
   line-height: 20px;
   overflow-y: hidden;
   overflow-x: auto;

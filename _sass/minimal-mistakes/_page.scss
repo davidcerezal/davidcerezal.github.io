@@ -72,12 +72,6 @@
     border-bottom: 1px solid $border-color;
   }
 
-  p,
-  li,
-  dl {
-    font-size: 1em;
-  }
-
   /* paragraph indents */
   p {
     margin: 0 0 $indent-var;
@@ -471,15 +465,6 @@
   margin-top: 2em;
   padding-top: 1em;
   border-top: 1px solid $border-color;
-
-  @include breakpoint($large) {
-    float: right;
-    width: calc(100% - #{$right-sidebar-width-narrow});
-  }
-
-  @include breakpoint($x-large) {
-    width: calc(100% - #{$right-sidebar-width});
-  }
 
   a {
     color: inherit;

@@ -12,7 +12,7 @@ Kaixo!, I’m David. I’m a software engineer living in Madrid, España.Obsesse
 
 Puedes ver un poco de mi twitter:
 
-<a class="twitter-timeline" data-width="600" data-height="500" href="https://twitter.com/cerezal_david?ref_src=twsrc%5Etfw">Tweets by cerezal_david</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a class="twitter-timeline" data-width="800" data-height="500" href="https://twitter.com/cerezal_david?ref_src=twsrc%5Etfw">Tweets by cerezal_david</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Since some years, I have set myself goals such as creating new projects, go in-depth in the spirit of the entrepreneur and be in constant development. For now I have a lot to learn, and I hope that it will always continue; while I am trying to get these goals I work as BackEnd Developer in Indexa Capital, in which I learn from the bests. In the little free time I have left, I like to explore the exciting world of AI (deep-learning) that I hope will help me to achieve the goal of creating new projects that make a significant change, but they must have a reason and not just an economic purpose.
 

@@ -8,19 +8,19 @@ author_profile: false
 collection: posts
 classes: wide
 feature_row:
-  - image_path: assets/images/tensorandocker.jpg
+  - image_path: assets/images/post2.png
     alt: "TensorFlow y Docker"
     title: "TensorFlow y Docker"
     excerpt: "Cómo desplegar una máquina en docker para **TensorFlow**. Containerize it!"
     url: "/dokcer-with-tensor-flow-and-keras/"
-  - image_path: /assets/images/space-sun.jpg
+  - image_path: /assets/images/post3.png
     alt: "Origen. Revolución cognitiva."
-    title: "Origen. Revolución cognitiva."
-    excerpt: "Siempre me gusta fantasear con la idea de que existió un momento perdido en nuestra humanidad, en el cual existió una chispa que comenzó  nuestro origen como humanos..."
-    url: "/inicio/"
-  - image_path: /assets/images/wordpress-intro.png
+    title: "Introducción a Numpy array"
+    excerpt: "Python tiene listas, enteros, punto flotante, etc. Para cálculo numérico necesitamos más, allí aparece ... **Numpy**!"
+    url: "/Numpy-arrays/"
+  - image_path: /assets/images/post4.png
     alt: "Página web con WordPress gratis"
-    title: "Página web con WordPress gratis"
+    title: "Crear una página web con WordPress gratis"
     excerpt: "¿Has pensando en alguna vez en crear **tu propia** página bajo un dominio personalizado?"
     url: "/como-crear-maquina-web-con-wordpress-gratis/"
 ---

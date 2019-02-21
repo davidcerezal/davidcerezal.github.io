@@ -11,8 +11,8 @@
    font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
 }
 
-.page__content strong {
-	font-family: "Avenir Next LT Pro Bold";
+.page__content p, li {
+	font-family: "Helvetica Neue";
 }
 
 .f-ligth {
@@ -22,6 +22,30 @@
 .f-extra-ligth {
 	font-family: "Avenir Next LT Pro Ultra Light Condensed";
 }
+
+@media (min-width: 48em) {
+.page__content p, .page__content li {
+	font-size: 14px;
+}
+}
+
+@media (min-width: 64em) {
+.page__content p, .page__content li{
+	font-size: 16px;
+}
+}
+
+@media (min-width: 80em) {
+.page__content p, .page__content li{
+	font-size: 18px;
+}
+
+.page__content  .jpytc p{
+	font-size: 14px;
+}
+}
+
+
 
 :root {
     --main-color-link:#6f8f68;
@@ -79,6 +103,28 @@
 		padding-right: 10px;
 		width: calc(100% - 10px) !important;
 	}
+}
+
+@media only screen and (min-width: 400px) {
+	.page__content {
+	width: 105% !important;
+}
+}
+
+@media only screen and (min-width: 600px) {
+	.page__content {
+	width: 110% !important;
+}
+}
+
+@media only screen and (min-width: 1000px) {
+.page__content {
+	width: 125% !important;
+}
+}
+
+.splash .page__content {
+	width: 100% !important;
 }
 
 .page__content a , .archive__item a {
