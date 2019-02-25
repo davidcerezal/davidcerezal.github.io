@@ -48,8 +48,8 @@
 
 
 :root {
-    --main-color-link:#6f8f68;
-    --main-color-link-hover:#225216;
+    --main-color-link:#1a5d12;
+    --main-color-link-hover:#91e886;
 }
 
 .page-with-out-sidebar {
@@ -127,15 +127,33 @@
 	width: 100% !important;
 }
 
-.page__content a , .archive__item a {
+.splash .page__content a, .archive__item a {
+	color: var(--main-color-link) !important;
+}
+.splash .page__content a:visited, .archive__item a:visited {
+	color: var(--main-color-link) !important;
+}
+.splash .page__content a:hover, .archive__item a:hover {
+	color: var(--main-color-link-hover) !important;
+}
+
+.page__content a {
+	color: #059bed !important;
+}
+
+.page__content a:visited{
+	color: #059bed !important;
+}
+
+.page__content a:hover{
+	color: #6cc9fc !important;
+}
+
+.grid__item a {
 	color: var(--main-color-link) !important;
 }
 
-.page__content a:visited , .archive__item a:visited {
-	color: var(--main-color-link) !important;
-}
-
-.page__content a:hover , .archive__item a:hover {
+.grid__item a:hover {
 	color: var(--main-color-link-hover) !important;
 }
 
@@ -149,7 +167,7 @@
 
 
 .greedy-nav .visible-links a:before {
-    background: #6f8f68 !important;
+    background: var(--main-color-link-hover) !important;
 }
 
 .post-header {

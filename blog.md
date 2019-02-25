@@ -26,12 +26,12 @@ feature_row:
 ---
 
 <h1 id="page-title" class="page__title post-header-sm">
-<i class="fas fa-star-of-david" style="color: #6f8f68; width: 25px;"></i>
+<i class="fas fa-star-of-david" style="color: #91e886; width: 25px;"></i>
  Destacados
 </h1>
 
 {% include feature_row %}
 <h1 id="page-title" class="page__title post-header-sm">
-<i class="far fa-clock" style="color: #6f8f68; width: 25px;"></i>
+<i class="far fa-clock" style="color: #91e886; width: 25px;"></i>
  Lo último
 </h1>
