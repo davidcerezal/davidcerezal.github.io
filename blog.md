@@ -13,11 +13,11 @@ feature_row:
     title: "TensorFlow y Docker"
     excerpt: "Cómo desplegar una máquina en docker para **TensorFlow**. Containerize it!"
     url: "/dokcer-with-tensor-flow-and-keras/"
-  - image_path: /assets/images/post3.png
-    alt: "Origen. Revolución cognitiva."
-    title: "Introducción a Numpy array"
-    excerpt: "Python tiene listas, enteros, punto flotante, etc. Para cálculo numérico necesitamos más, allí aparece ... **Numpy**!"
-    url: "/Numpy-arrays/"
+  - image_path: /assets/images/olivetti-home.png
+    alt: "Estudio sobre olivetti faces"
+    title: "Estudio sobre olivetti faces"
+    excerpt: "Estudio sobre **olivetti faces** con Convolucionales, PCA, Logistic regression, SVM"
+    url: "/estudio-olivetti-faces/"
   - image_path: /assets/images/post4.png
     alt: "Página web con WordPress gratis"
     title: "Crear una página web con WordPress gratis"
