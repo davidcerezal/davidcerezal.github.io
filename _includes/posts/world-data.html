@@ -1,0 +1,334 @@
+
+<link rel="stylesheet" href="/assets/css/extra-jupyter.css">
+<div class="jpytc" style=" font-size: 14px !important;"> 
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Una red neuronal convolucional (Convolutional Neural Networks en inglés, con los acrónimos CNNs o ConvNets) es un caso concreto de redes neuronales Deep Learning, estas han tenido un auge exponencial recientemente dado sus excelentes resultados, pero ya se conocen desde los años 90.</p>
+<p>Para hacernos una idea intuitiva de cómo funcionan estas redes neuronales, pensemos en cómo nosotros reconocemos las cosas. Por ejemplo, si vemos una cara, la reconocemos porque tiene orejas, ojos, una nariz, cabello, etc. Entonces vamos asimilando en nuestra cabeza qué rasgos cumple y asignamos una probabilidad de que sea una cara. Por ejemplo, si vemos una posible cara de noche, pero la mitad de ella esta oscura puede que dudemos al decidir mentalmente si se trata de una persona o no, dado que no vemos claramente los rasgos suficientes de una cara. Las redes convolucionales hacen algo similar, dar una posibilidad de que el objeto que buscamos sea el que ve en la imagen.</p>
+<h2 id="Inicio---Mask-R-CNN"><strong>Inicio - Mask R-CNN</strong><a class="anchor-link" href="#Inicio---Mask-R-CNN">&#182;</a></h2><p>El objetivo de este post es construir un modelo CNN con máscaras de región (Mask R-CNN) que pueda detectar el área de daño en un automóvil. El problema de una red CNN es que puede encontrar miles de objetos y regiones, para paliar este problema se crearon las R-CNN. En R-CNN, la CNN está obligada a enfocarse en una sola región, porque de esa manera se minimiza la interferencia de otros objetos. Las regiones en el R-CNN se detectan mediante un algoritmo de búsqueda selectiva seguido de cambio de tamaño, de modo que las regiones tengan el mismo tamaño antes de que se envíen a un CNN para la clasificación y la regresión del cuadro delimitador. Es decir, una R-CNN busca en n-regiones y se enfoca en encontrar el objeto-target, de ahí que nos sirva de manera idónea para este caso. Por ejemplo, los primeros casos de uso de estas redes R-CNN son en la conducción autónoma, ya que sirven de manera espectacular para la detección de coches en una carretera; procesará diferentes regiones en busca de los n-coches de la imagen.</p>
+<p><img src='https://cdn-images-1.medium.com/max/1000/1*QyW8eCwpRzw5rDpW75-YfA.gif' />
+</p></br></br>
+<h2 id="Inicio---C&#243;mo-crear-una-R-CNN"><strong>Inicio - C&#243;mo crear una R-CNN</strong><a class="anchor-link" href="#Inicio---C&#243;mo-crear-una-R-CNN">&#182;</a></h2><p>Una buena forma de imaginar una R-CNN es por medio de la combinación de una faster-R-CNN y una Fully Conected CNN. La primera Faster R-CNN, buscará las región en la cual cree que esta el objeto, y la clase de estas, la Fully conected CNN, encontrará el objeto en esa región.</p>
+<p><img width='500' src='https://cdn-images-1.medium.com/max/1600/1*Sequfmhm-iytuxqBjq3kDg.png' /></p>
+</br></br>
+<p>En el siguiente ejemplo, podemos ver claramente como en el primero paso, la Faster R-CNN nos devuelve la región en la que se encuentra el jugador principal, con su respectiva etiqueta de clasificación, y en el siguiente paso la Fully Conected CNN encontrará este objeto.</p>
+<p><img width='500' src='https://cdn-images-1.medium.com/max/1000/1*ieezbqKz24zJtlaR3GqbOQ.png'/></p>
+</br></br>
+<p>Para crear una máscara R-CNN personalizada, aprovecharemos el repositorio <a  href="https://github.com/matterport/Mask_RCNN" target="_blank" >Matterport</a> Github. El último repositorio de TensorFlow Object Detection también ofrece la opción de crear Mask R-CNN, pero se recomienda utilizar esta librería ya que sino te encontrarás con muchos problemas que alguién ya se revolvió en resolver.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Recopilaci&#243;n-del-Data-set">Recopilaci&#243;n del Data-set<a class="anchor-link" href="#Recopilaci&#243;n-del-Data-set">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Se utilizarán 60 imágenes de coches dañados obtenidos de google. Estas imágenes se necesita que tengan el área del daño perimetrada, para ello se creará un <a href="https://github.com/priya-dwivedi/Deep-Learning/tree/master/mask_rcnn_damage_detection/customImages" target="_blank">Dataset </a>con estos datos ya específicados.</p>
+<p><img width='300' src='https://cdn-images-1.medium.com/max/1000/1*-uBas-NZFmUYqSKgTpGybQ.jpeg'/></p>
+<p></br></br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Train-del-modelo">Train del modelo<a class="anchor-link" href="#Train-del-modelo">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Primero traemos las librerías necesarias para entrenar este modelo antes citadas y definimos también los directorios de los pesos ya entrenamos de <a href="http://cocodataset.org/#home" target="_blank" >COCO</a>. Esta es un dataset de todo tipo de imágenes las cuales han sido entrenadas, y tenemos los pesos de ese entrenamiento. Esto nos servirá de punto de partida para entrenar el modelo usando el transfer learning.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">skimage.draw</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">mrcnn.visualize</span> <span class="k">import</span> <span class="n">display_instances</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">mrcnn.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">mrcnn</span> <span class="k">import</span> <span class="n">model</span> <span class="k">as</span> <span class="n">modellib</span><span class="p">,</span> <span class="n">utils</span>
+
+<span class="c1"># Path to trained weights file</span>
+<span class="n">COCO_WEIGHTS_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="s2">&quot;mask_rcnn_coco.h5&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>En la siguiente función importaremos el dataset. Se trabaja con la búsqueda del objeto "damage", para ello se <strong>añaden cierta metadata a cada imagen</strong> para que luego la librería pueda trabajar con ella. Es el caso, de esta clase damage, o los atributos de Width y height del shape.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">load_custom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_dir</span><span class="p">,</span> <span class="n">subset</span><span class="p">):</span>
+        <span class="c1"># Add classes. We have only one class to add.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="s2">&quot;damage&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;damage&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Train or validation dataset?</span>
+        <span class="k">assert</span> <span class="n">subset</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">]</span>
+        <span class="n">dataset_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_dir</span><span class="p">,</span> <span class="n">subset</span><span class="p">)</span>
+        
+        <span class="c1"># We mostly care about the x and y coordinates of each region</span>
+        <span class="n">annotations1</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_dir</span><span class="p">,</span> <span class="s2">&quot;via_region_data.json&quot;</span><span class="p">)))</span>
+        <span class="c1"># print(annotations1)</span>
+        <span class="n">annotations</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">annotations1</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>  <span class="c1"># don&#39;t need the dict keys</span>
+
+        <span class="n">annotations</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">annotations</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;regions&#39;</span><span class="p">]]</span>
+
+        <span class="c1"># Add images</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">annotations</span><span class="p">:</span>
+            <span class="n">polygons</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;shape_attributes&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;regions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+
+            <span class="n">image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_dir</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">])</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+            <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span>
+                <span class="s2">&quot;damage&quot;</span><span class="p">,</span>  <span class="c1">## for a single class just add the name here</span>
+                <span class="n">image_id</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">],</span>  <span class="c1"># use file name as a unique image id</span>
+                <span class="n">path</span><span class="o">=</span><span class="n">image_path</span><span class="p">,</span>
+                <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+                <span class="n">polygons</span><span class="o">=</span><span class="n">polygons</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Función de creación de una máscara pasada una imagen, creará una máscara con las características de alto x ancho que le pasemos, lo <strong>devolverá en el formato adecuado</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">load_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_id</span><span class="p">):</span>
+        <span class="n">image_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_info</span><span class="p">[</span><span class="n">image_id</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">image_info</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;damage&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">load_mask</span><span class="p">(</span><span class="n">image_id</span><span class="p">)</span>
+
+        <span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_info</span><span class="p">[</span><span class="n">image_id</span><span class="p">]</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;width&quot;</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;polygons&quot;</span><span class="p">])],</span>
+                        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;polygons&quot;</span><span class="p">]):</span>
+            <span class="c1"># Get indexes of pixels inside the polygon and set them to 1</span>
+            <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;all_points_y&#39;</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;all_points_x&#39;</span><span class="p">])</span>
+            <span class="n">mask</span><span class="p">[</span><span class="n">rr</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Para la posterior visualización del los objetos detectados crearemos una función que se <strong>encargará de pintar la región que ha encontrado</strong> en la imagen en cuestión.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">color_splash</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+    <span class="n">gray</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">gray2rgb</span><span class="p">(</span><span class="n">skimage</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">image</span><span class="p">))</span> <span class="o">*</span> <span class="mi">255</span>
+    <span class="c1"># We&#39;re treating all instances as one, so collapse the mask into one layer</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">splash</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">gray</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">splash</span> <span class="o">=</span> <span class="n">gray</span>
+    <span class="k">return</span> <span class="n">splash</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Este será la función train del modelo, como ya viene <strong>pre-entrenada con los pesos de COCO</strong> no será necesario entrenarla mucho, lo haremos sólo con 10 veces.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="c1"># Training dataset.</span>
+    <span class="n">dataset_train</span> <span class="o">=</span> <span class="n">CustomDataset</span><span class="p">()</span>
+    <span class="n">dataset_train</span><span class="o">.</span><span class="n">load_custom</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">)</span>
+    <span class="n">dataset_train</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+
+    <span class="c1"># Validation dataset</span>
+    <span class="n">dataset_val</span> <span class="o">=</span> <span class="n">CustomDataset</span><span class="p">()</span>
+    <span class="n">dataset_val</span><span class="o">.</span><span class="n">load_custom</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">)</span>
+    <span class="n">dataset_val</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">dataset_train</span><span class="p">,</span> <span class="n">dataset_val</span><span class="p">,</span>
+                <span class="n">learning_rate</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
+                <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                <span class="n">layers</span><span class="o">=</span><span class="s1">&#39;heads&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Train-principal">Train principal<a class="anchor-link" href="#Train-principal">&#182;</a></h1><ol>
+<li>Crearemos primero un modelo de MaskRCNN provisto por la librería de Matterport.</li>
+<li>En este caso cargaremos los pesos pre-entrenados de la librería de COCO.</li>
+<li>Primero entrenaremos el modelo</li>
+<li>A posteriori podemos pasarle una imagen y ver el resultado con la función de detect_and_color_splash</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>    <span class="c1"># Create model</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;train&quot;</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">modellib</span><span class="o">.</span><span class="n">MaskRCNN</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+                                  <span class="n">model_dir</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">logs</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">modellib</span><span class="o">.</span><span class="n">MaskRCNN</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;inference&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+                                  <span class="n">model_dir</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">logs</span><span class="p">)</span>
+
+    <span class="n">weights_path</span> <span class="o">=</span> <span class="n">COCO_WEIGHTS_PATH</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">weights</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;coco&quot;</span><span class="p">:</span>
+        <span class="c1"># Exclude the last layers because they require a matching</span>
+        <span class="c1"># number of classes</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">weights_path</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;mrcnn_class_logits&quot;</span><span class="p">,</span> <span class="s2">&quot;mrcnn_bbox_fc&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mrcnn_bbox&quot;</span><span class="p">,</span> <span class="s2">&quot;mrcnn_mask&quot;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">weights_path</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;train&quot;</span><span class="p">:</span>
+        <span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;splash&quot;</span><span class="p">:</span>
+        <span class="n">detect_and_color_splash</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">image_path</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+                                <span class="n">video_path</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">video</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Para entrenar este modelo, y hacer lo que hemos citado en los pasos anterior ejecutaremos el siguiente comando:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Train a new model starting from pre-trained COCO weights</span>
+<span class="n">python3</span> <span class="n">custom</span><span class="o">.</span><span class="n">py</span> <span class="n">train</span> <span class="o">--</span><span class="n">dataset</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">datasetfolder</span> <span class="o">--</span><span class="n">weights</span><span class="o">=</span><span class="n">coco</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Al acabar podemos obtener predicciones de este tipo</p>
+<p><img width='400' src='https://cdn-images-1.medium.com/max/1000/1*Qcicm90jhdq6wee2hbromg.jpeg'/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mask-RCNN es la siguiente evolución de los modelos de detección de objetos ya que permiten la detección con mejor precisión.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Referencias</strong></p>
+<p>1.- Las explicaciones se han obtenido de <a href="https://www.analyticsvidhya.com/blog/2018/07/building-mask-r-cnn-model-detecting-damage-cars-python/" target="_blank" > analitics vidhya</a></p>
+<p>2.- El código de <a href="https://github.com/priya-dwivedi/Deep-Learning/blob/master/mask_rcnn_damage_detection/custom.py" target="_blank" > priya-dwivedi github</a></p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
