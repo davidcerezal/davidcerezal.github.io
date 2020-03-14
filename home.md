@@ -3,6 +3,7 @@ title: "Del Mono Al Ordenador"
 seo_title: "Inicio"
 seo_description: "Blog sobre Tech, IA, historia, filosofía y cada una de mis nuevas pasiones. Tutoriales sobre IA, buenas prácticas de programación, Hack y trucos. Escribe David Cerezal: Techie y geek."
 layout: splash
+permalink: /
 date: 2016-03-23T11:48:41-04:00
 header:
   overlay_color: "#000"

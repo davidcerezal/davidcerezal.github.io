@@ -3,6 +3,7 @@ title: "Plantilla Árbol genealógico"
 author: DavidCerezal
 header:
   image: /assets/images/post-arbol.png
+  teaser: /assets/images/post-arbol.png
 seo_title: "Plantilla photoshop, PNG y PDF para un árbol genealógico tipo A2"
 seo_description: "Plantilla completa photoshop, PNG y PDF para un árbol genealógico tipo A2"  
 tags: 

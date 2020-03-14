@@ -3,6 +3,7 @@ title: "El origen secreto de las palabras"
 author: Cerecea
 header:
   image: /assets/images/post5.png
+  teaser: /assets/images/post5.png
 seo_title: "Cea. El origen secreto de las palabras."
 seo_description: "Cea. Origen.A pesar de que los lugares no tengan biografía, algunos tienen más vida que las personas, pero solo unos pocos tienen vida secreta, es el caso de esta villa que encierra innumerables enigmas, sin duda el más importante su nombre. Fue el río el que bautizó a la villa o sucedió lo contrario..."  
 tags: 

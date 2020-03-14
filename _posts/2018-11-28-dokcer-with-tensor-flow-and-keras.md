@@ -3,6 +3,7 @@ title: "Cómo desplegar una máquina en docker para TensorFlow. Containerize it!
 author: DavidCerezal
 header:
   image: /assets/images/post2.png
+  teaser: /assets/images/post2.png
 seo_title: "Cómo desplegar una máquina en docker para TensorFlow. Containerize it!"
 seo_description: "Hoy vamos a crear una máquina virtual apta para operar con TensorFlow y Keras, basado en el libro “DeepLearning with Keras”. Para ello nos basaremos en Docker, una herramienta que nos permite automatizar el despliegue de aplicaciones dentro de contenedores de software..."  
 tags: 

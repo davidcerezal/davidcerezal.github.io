@@ -3,7 +3,10 @@ title: "Crear una firma para tu correo"
 author: DavidCerezal
 header:
   image: /assets/images/post7.png
-seo_title: "Crea una firma para tu correo de forma gratuita y con aspecto profesional!"  
+  teaser: /assets/images/post7.png  
+seo_title: "Crea una firma para tu correo de forma gratuita y con aspecto profesional!"
+toc: true
+toc_sticky: true  
 tags: 
   - Correo
   - Firma

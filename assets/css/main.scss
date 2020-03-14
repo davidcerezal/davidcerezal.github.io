@@ -13,6 +13,7 @@ $sans-serif-narrow  : "Avenir Next LT Pro Demi", -apple-system, "Roboto", "Segoe
 $global-font-family: $serif !default;
 $header-font-family: $sans-serif-narrow !default;
 $caption-font-family: $serif !default;
+@media (min-width: 48em){.grid__item .archive__item-teaser{max-height:150px !important}}
 
 /* ---- Custom code ends here ---- */
 
