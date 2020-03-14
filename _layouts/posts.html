@@ -4,8 +4,10 @@ layout: archive
 {{ content }}
 
 <div class="grid__wrapper">
-{% for post in site.posts %}
+{% for post in paginator.posts %}
     {% include archive-single.html type=page.entries_layout %}
 {% endfor %}
 </div>
+
+{% include paginator.html %}
 
