@@ -86,7 +86,7 @@
 		font-size: 0.9em ;
 	}
 
-	.archive {
+	.archive, .feature__wrapper, .grid__wrapper {
 		float: right;
 		padding-right: 70px ;
 		padding-right: 70px !important;
@@ -105,7 +105,7 @@
 		font-size: 0.8em !important;
 	}
 
-	.archive {
+	.archive, .feature__wrapper, .grid__wrapper{
 		float: right;
 		padding-right: 40px !important;
 		width: calc(100% - 40px) !important;
@@ -122,7 +122,7 @@
 		padding-right: 10px !important;
 	}
 
-	.archive {
+	.archive, .feature__wrapper, .grid__wrapper {
 		float: right;
 		padding-right: 10px !important;
 		width: calc(100% - 10px) !important;
