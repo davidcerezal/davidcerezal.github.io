@@ -6,6 +6,7 @@ seo_description: "Aupa!&nbsp;&nbsp;Soy David,Techie, Geek o {Passion_for_IT_new_
 Obsesionado con aportar mi grano de arena a este mundo, pero dehacerlo con un porqué."
 permalink: /about/
 author_profile: true
+breadcrumbs: false
 ---
 
 Kaixo!, I’m David. I’m a software engineer living in Madrid, España. Obsessed with making my own tiny contribution to this world, but doing it with a reason.

@@ -1,26 +1,37 @@
 .masthead__menu-item {
-  font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif;
-  font-size: $type-size-4;
+  font-family:  "Avenir Next LT Pro Regular", Georgia, Times, serif;
+  line-height: 21px;
+  color: #666;
 }
 
 .sidebar .author__content {
-   font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
+   font-family: "Nunito", "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
+    line-height: 21px;
+  	color: #666;
 }
 
 .sidebar p {
-   font-family: "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
+   font-family: "Nunito", "Avenir Next LT Pro Regular", Georgia, Times, serif !important;
+    line-height: 21px;
+  	color: #666;
 }
 
-.page__content p, li {
-	font-family: "Helvetica Neue";
+.arvive__item p, .page__content p, li {
+	font-family: "Nunito", "Helvetica Neue";
+	line-height: 21px;
+  	color: #666;
 }
 
 .f-ligth {
-	font-family: "Avenir Next LT Pro Italic";
+	font-family: "Nunito-Italic", "Avenir Next LT Pro Italic";
+	line-height: 21px;
+  	color: #666;
 }
 
 .f-extra-ligth {
-	font-family: "Avenir Next LT Pro Ultra Light Condensed";
+	font-family: "Nunito-ExtraLightItalic", "Avenir Next LT Pro Ultra Light Condensed";
+	line-height: 21px;
+    color: #666;
 }
 
 @media (min-width: 48em) {
@@ -41,68 +52,92 @@
 }
 
 .page__content  .jpytc p, .page__content  .jpytc li{
-	font-size: 14px;
+	font-size: 16px;
 }
 }
-
-
 
 :root {
     --main-color-link:#66BB55;
     --main-color-link-hover:#11A770;
 }
 
+.breadcrumbs a:hover {
+    color: var(--main-color-link-hover) !important;
+}
+
+.breadcrumbs a {
+    color: var(--main-color-link) !important;
+}
+
 .page-with-out-sidebar {
 	width: calc(100% - 150px) !important;
 	padding-right: 150px;
+	/*padding-right: 150px !important;*/
 }
 
 .archive, .feature__wrapper, .grid__wrapper {
 	width: calc(100% - 50px) !important;
 }
 
+/*.page {
+	padding-right: 70px !important;;
+	padding-left: 20px !important;
+}*/
+
 @media only screen and (max-width: 1000px) {
 	.page-with-out-sidebar {
 		float: right;
 		width: calc(100% - 70px) !important;
-		padding-right: 70px;
-		font-size: 0.9em;
+		padding-right: 70px ;
+		font-size: 0.9em ;
+/*		padding-right: 70px !important;
+		font-size: 0.9em !important;*/
 	}
 
 	.archive {
 		float: right;
-		padding-right: 70px;
+		padding-right: 70px ;
+/*		padding-right: 70px !important;*/
 		width: calc(100% - 70px) !important;
 	}
+/*	.page {
+		padding-right: 70px !important;
+	}*/
 }
 
 @media only screen and (max-width: 600px) {
 	.page-with-out-sidebar {
 		float: right;
 		width: calc(100% - 40px) !important;
-		padding-right: 40px;
-		font-size: 0.8em;
+		padding-right: 40px !important;
+		font-size: 0.8em !important;
 	}
 
 	.archive {
 		float: right;
-		padding-right: 40px;
+		padding-right: 40px !important;
 		width: calc(100% - 40px) !important;
 	}
+	/*.page{
+		padding-right: 20px !important;
+	}*/
 }
 
 @media only screen and (max-width: 400px) {
 	.page-with-out-sidebar {
 		float: right;
 		width: calc(100% - 10px) !important;
-		padding-right: 10px;
+		padding-right: 10px !important;
 	}
 
 	.archive {
 		float: right;
-		padding-right: 10px;
+		padding-right: 10px !important;
 		width: calc(100% - 10px) !important;
 	}
+	/*.page{
+		padding-right: 10px !important;
+	}*/
 }
 
 
@@ -121,10 +156,6 @@
 }
 
 .page__content a {
-	color: #059bed !important;
-}
-
-.page__content a:visited{
 	color: #059bed !important;
 }
 
@@ -161,10 +192,6 @@
 .post-header-sm {
 	padding-top: 20px;
 	padding-bottom: 20px;
-}
-
-.archive__item-teaser {
-	height: 10em;
 }
 
 .archive__item-body {
