@@ -20,35 +20,35 @@ intro:
 intro2: 
   - excerpt: 'Por otro lado, mi padre siempre me inculco un gusto por la **historia** y la **filosofía** que aún mantengo. Por eso, entre él y yo escribimos sobre estos temas, sobre nuestro pueblo perdido en la España vacía, sobre mis nuevos hobbies...'  
 feature_row:
-  - image_path: assets/images/post7.png
-    alt: "Crear una firma para tu correo"
-    title: "Crear una firma para tu correo"
-    excerpt: "¡Crea una firma para tu correo de forma **gratuita** y con aspecto **profesional!**"
-    url: "/firma-en-correos/"
+  - image_path: /assets/images/instabot.png
+    alt: "Instabot. Automatize your Instagram"
+    title: "Instabot. Automatize your Instagram"
+    excerpt: "Instabot. **Python bot integrated with Instagram** to increase your's instagram numbers."
+    url: "/instabot/"
   - image_path: /assets/images/post3.png
-    alt: "Origen. Revolución cognitiva."
+    alt: "Introducción a Numpy array"
     title: "Introducción a Numpy array"
     excerpt: "Python tiene listas, enteros, punto flotante, etc. Para cálculo numérico necesitamos más, allí aparece ... **Numpy**!"
     url: "/Numpy-arrays/"
-  - image_path: /assets/images/post4.png
-    alt: "Página web con WordPress gratis"
-    title: "Crear una página web con WordPress gratis"
-    excerpt: "¿Has pensando en alguna vez en crear **tu propia** página bajo un dominio personalizado?"
-    url: "/como-crear-maquina-web-con-wordpress-gratis/"
+  - image_path: /assets/images/olivetti-home.png
+    alt: "Estudio sobre olivetti faces"
+    title: "Estudio sobre olivetti faces"
+    excerpt: "Estudio sobre **olivetti faces** con Convolucionales, PCA, Logistic regression, SVM"
+    url: "/estudio-olivetti-faces/"    
 feature_row2:
-  - image_path: /assets/images/post1.png
-    alt: "Origen. Revolución cognitiva."
-    title: "Origen. Revolución cognitiva."
-    excerpt: "Siempre me gusta fantasear con la idea de que existió un momento perdido en nuestra humanidad, en el cual existió una chispa que comenzó  nuestro origen como humanos..."
-    url: "/inicio/"
+  - image_path: /assets/images/post-arbol.png
+    alt: "Plantilla Árbol genealógico"
+    title: "Árbol genealogico"
+    excerpt: "Plantilla en photoshop, PNG y PDF para un árbol genealógico tipo A2. Espero que os sirva tanto como a mí."
+    url: "/plantilla-arbol-genealogico/"
     btn_label: "Leer más..."
     btn_class: "btn-border-grey"
 feature_row3:
-  - image_path: /assets/images/post5.png
-    alt: "El origen secreto de las palabras."
-    title: "Cea. El origen secreto de las palabras."
-    excerpt: "Cea. Origen. A pesar de que los lugares no tengan biografía, algunos tienen más vida que las personas, pero solo unos pocos tienen vida secreta, es el caso de esta villa que encierra innumerables enigmas, sin duda el más importante su nombre. Fue el río el que bautizó a la villa o sucedió lo contrario..."
-    url: "El-origen-secreto-de-las-palabras/"
+  - image_path: /assets/images/listaexcelscript.png
+    alt: "Plantilla Google Sheets organización de las compras en casa"
+    title: "Organiza tus compras con GoogleSheets"
+    excerpt: "Plantillas para excel con macros de google script. Como generar lista automáticamente desde un rango. Plantilla Excel para ordenar tus compras...."
+    url: "/plantilla-lista-compra-excel/"
     btn_label: "Leer más..."
     btn_class: "btn-border-grey"
 ---
