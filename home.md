@@ -25,22 +25,22 @@ feature_row:
     title: "Instabot. Automatize your Instagram"
     excerpt: "Instabot. **Python bot integrated with Instagram** to increase your's instagram numbers."
     url: "/instabot/"
+  - image_path: /assets/images/spain-d3.png
+    alt: "Spain map with D3"
+    title: "Spain map with D3"
+    excerpt: "Spain map with D3. Evolution of clients using **D3 and D3-composition**"
+    url: "/spain-map-with-D3/"
+  - image_path: /assets/images/olivetti-home.png
+    alt: "Spain map with D3"
+    title: "Spain map with D3"
+    excerpt: "Estudio sobre **olivetti faces** con Convolucionales, PCA, Logistic regression, SVM"
+    url: "/estudio-olivetti-faces/"    
+feature_row2:
   - image_path: /assets/images/post3.png
     alt: "Introducción a Numpy array"
     title: "Introducción a Numpy array"
     excerpt: "Python tiene listas, enteros, punto flotante, etc. Para cálculo numérico necesitamos más, allí aparece ... **Numpy**!"
     url: "/Numpy-arrays/"
-  - image_path: /assets/images/olivetti-home.png
-    alt: "Estudio sobre olivetti faces"
-    title: "Estudio sobre olivetti faces"
-    excerpt: "Estudio sobre **olivetti faces** con Convolucionales, PCA, Logistic regression, SVM"
-    url: "/estudio-olivetti-faces/"    
-feature_row2:
-  - image_path: /assets/images/post-arbol.png
-    alt: "Plantilla Árbol genealógico"
-    title: "Árbol genealogico"
-    excerpt: "Plantilla en photoshop, PNG y PDF para un árbol genealógico tipo A2. Espero que os sirva tanto como a mí."
-    url: "/plantilla-arbol-genealogico/"
     btn_label: "Leer más..."
     btn_class: "btn-border-grey"
 feature_row3:
