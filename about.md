@@ -3,21 +3,21 @@ layout: single-sidebar
 title: About
 seo_title: "Acerca de"
 seo_description: "Aupa!&nbsp;&nbsp;Soy David,Techie, Geek o {Passion_for_IT_new_adjective_in_trend}.
-Obsesionado con aportar mi grano de arena a este mundo, pero dehacerlo con un porqué."
+Tratando de aportar mi grano de arena a este mundo, pero dehacerlo con un porqué."
 permalink: /about/
 author_profile: true
 breadcrumbs: false
 ---
 
-Kaixo!, I’m David. I’m a software engineer living in Madrid, España. Obsessed with making my own tiny contribution to this world, but doing it with a reason.
+Kaixo!, I’m David. I’m a software engineer living in Madrid, España. Trying to contribute making my own tiny contribution to this world, but doing it with a reason.
 
 ### Professional Career
 
-Since some years, I have set myself goals such as creating new projects, go in-depth in the spirit of the entrepreneur and be in constant development. For now I have a lot to learn, and I hope that it will always continue; while I am trying to get these goals I work as BackEnd Developer in Indexa Capital, in which I learn from the bests. In the little free time I have left, I like to explore the exciting world of AI (master in machine learning) that I hope will help me to achieve the goal of creating new projects that make a significant change, but they must have a reason and not just an economic purpose.
+Since some years, I have set myself goals such as creating new projects, go in-depth in the spirit of the entrepreneur and be in constant development. For now I have a lot to learn, and I hope that it will always continue, while I achieve my goals, I work as a BackEnd Developer and lead a small team at Indexa Capital, in which I learn from the best (both in development and in team management). In the spare time I have left, I keep projects of photography and writing, and some friends projects in which I try with new technologies (React). I also move in the exciting world of AI (master in machine learning) that I hope will help me achieve the goal of creating new projects that make a significant change, that have a reason and not just an economic purpose.
 
 Respect Software philosophy since I met the world DDD I am totally in love with him, of course without forgetting my lovers as Solid-principles, agile development and clean code. In my I.T. career, I have a couple of projects which I am really proud: I developed an Android app for an ERP (Update), customization and total management of a dating and web application from Dating (Mondia) and the work that I currently do for Indexa (Our feedback of 9 in Trustpilot is the true metric that we do really well).
 
-If you are interested in talking to me, you can do it on Twitter ([@cerezal_david](https://twitter.com/cerezal_david)) or Email ([david.cerezal77@gmail.com](mailto:david.cerezal77@gmail.com)), I do not usually take more than a day to close the ticket.
+If you are interested in talking to me, you can do it on LinkedIn ([/davidcerezal](https://www.linkedin.com/in/davidcerezal)) or Email ([david.cerezal77@gmail.com](mailto:david.cerezal77@gmail.com)), I do not usually take more than a day to close the ticket.
 
 
 **For professional interests!** This is my [CV](/assets/archives/David_Cerezal_En.pdf)
