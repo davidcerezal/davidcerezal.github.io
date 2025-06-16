@@ -20,10 +20,6 @@ Respect Software philosophy since I met the world DDD I am totally in love with 
 If you are interested in talking to me, you can do it on LinkedIn ([/davidcerezal](https://www.linkedin.com/in/davidcerezal)) or Email ([david.cerezal77@gmail.com](mailto:david.cerezal77@gmail.com)), I do not usually take more than a day to close the ticket.
 
 
-**For professional interests!** This is my [CV](/assets/archives/David_Cerezal_En.pdf)
-{: .notice--info}
-
-
 ### Hobbies
 
 The technology offers me a vast range of opportunities and options that fascinates me, for that reason I work in that area and spend the majority of my life also there. But I also have some life beyond, and some hobbie.
