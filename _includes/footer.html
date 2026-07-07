@@ -1,19 +1,15 @@
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
-
-    {% if site.footer.links %}
-      {% for link in site.footer.links %}
-        {% if link.label and link.url %}
-          <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-
-    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-  </ul>
-</div>
-
-<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img class="nav__logo" src="{{ '/assets/images/icon.png' | relative_url }}" alt="David Cerezal" width="44" height="50">
+      <p>Del Mono al Ordenador — Tech, IA, historia y nuevas pasiones.</p>
+    </div>
+    <div class="footer__social">
+      <a href="https://github.com/davidcerezal" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+      <a href="https://www.linkedin.com/in/davidcerezal/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a href="https://www.instagram.com/pic.dave/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <a href="https://linktr.ee/pic.dave" target="_blank" rel="noopener" aria-label="Linktree">Linktree</a>
+    </div>
+  </div>
+  <p class="footer__copy">© {{ site.time | date: '%Y' }} David Cerezal · Hecho con Jekyll</p>
+</footer>

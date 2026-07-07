@@ -105,29 +105,29 @@ analytics:
 author:
   name             : "David Cerezal"
   avatar           : "/assets/images/yo.jpg"
-  bio              : "Obsesionado con aportar mi grano de arena a este mundo, pero de
-hacerlo con un porqué."
-  location         : "Madrid"
-  email            : "david.cerezal77@gmail.com"
+  bio              : "Ingeniero de contexto. Obsesionado con aportar mi grano de arena a este
+mundo, pero de hacerlo con un porqué."
+  location         : "Bilbao"
+  email            : "cerezal.david@gmail.com"
   links:
    # - label: "Email"
     #  icon: "fas fa-fw fa-envelope-square"
-     # url: mailto:david.cerezal77@gmail.com
+     # url: mailto:cerezal.david@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/cerezal_david"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/pic.dave/"
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/davidcerezal/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/davidcerezal"
-    - label: "Flickr"
-      icon: "fab fa-fw fa-flickr"
-      url: "https://www.flickr.com/photos/158256218@N06/"
+    - label: "Linktree"
+      icon: "fas fa-fw fa-link"
+      url: "https://linktr.ee/pic.dave"
 
 # Site Footer
 footer:
@@ -219,8 +219,8 @@ sass:
 permalink: /:categories/:title/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-paginate: 8 # amount of posts to show
-paginate_path: /blog/:num/
+#paginate: 8 # amount of posts to show
+#paginate_path: /blog/:num/
 #pagination:
  # enabled: true
  # per_page: 9

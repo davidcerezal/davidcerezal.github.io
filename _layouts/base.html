@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ site.locale | default: 'es' | slice: 0,2 }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05080a">
+
+  {% assign t = page.seo_title | default: page.title | default: site.title %}
+  <title>{% if page.title and page.url != "/" %}{{ t }} {{ site.title_separator }} {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.seo_description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+  <meta name="author" content="{{ site.author.name }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ t }}">
+  <meta property="og:description" content="{{ page.seo_description | default: site.description | strip_html | truncate: 160 }}">
+  <meta property="og:locale" content="{{ site.locale | default: 'es_ES' }}">
+
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Favicon / firma -->
+  <link rel="icon" type="image/png" href="{{ '/assets/images/icon.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/icon.png' | relative_url }}">
+  {% feed_meta %}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<script>document.documentElement.className += " js";</script>
+<body class="{{ page.body_class }}">
+  <canvas id="bg-net" aria-hidden="true"></canvas>
+
+  {% include nav.html %}
+
+  <main id="content">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <a href="#top" class="to-top" aria-label="Volver arriba">↑</a>
+
+  <script src="{{ '/assets/js/net.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script src="{{ '/assets/js/app.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+</body>
+</html>

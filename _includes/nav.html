@@ -1,0 +1,22 @@
+<header class="nav" id="top">
+  <a class="nav__brand" href="{{ '/' | relative_url }}">
+    <img class="nav__logo" src="{{ '/assets/images/icon.png' | relative_url }}" alt="" width="40" height="46">
+    <span class="nav__brandtext">
+      <span class="nav__brandtop">Del mono</span>
+      <span class="nav__brandbot">al ordenador</span>
+    </span>
+  </a>
+
+  <nav class="nav__links" aria-label="Principal">
+    <a href="{{ '/#sobre' | relative_url }}">Sobre mí</a>
+    <a href="{{ '/#proyectos' | relative_url }}">Proyectos</a>
+    <a href="{{ '/#blog' | relative_url }}">Blog</a>
+    <a href="{{ '/about/' | relative_url }}">About</a>
+    <a href="{{ '/#contacto' | relative_url }}">Contacto</a>
+    <a class="nav__cta" href="{{ '/blog/' | relative_url }}">Ir al Blog</a>
+  </nav>
+
+  <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>

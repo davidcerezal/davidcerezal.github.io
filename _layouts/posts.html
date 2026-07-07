@@ -1,13 +1,29 @@
 ---
-layout: archive
+layout: base
 ---
-{{ content }}
 
-<div class="grid__wrapper">
-{% for post in paginator.posts %}
-    {% include archive-single.html type=page.entries_layout %}
-{% endfor %}
-</div>
+<section class="bloghero">
+  <p class="hero__kicker">&gt; ls ./blog</p>
+  <h1 class="bloghero__title">El <span class="grad">Blog</span></h1>
+  <p class="bloghero__lead">Tech, IA, historia, filosofía y cada una de mis nuevas pasiones.</p>
+</section>
 
-{% include paginator.html %}
-
+<section class="section section--blog">
+  <div class="cards">
+    {% for p in site.posts %}
+    <a class="card reveal" href="{{ p.url | relative_url }}">
+      {% if p.header.teaser or p.header.image %}
+      <div class="card__img" style="background-image:url('{{ p.header.teaser | default: p.header.image | relative_url }}')"></div>
+      {% endif %}
+      <div class="card__body">
+        <div class="card__tags">
+          {% for tag in p.tags limit: 3 %}<span>{{ tag }}</span>{% endfor %}
+        </div>
+        <h3 class="card__title">{{ p.title }}</h3>
+        <p class="card__excerpt">{{ p.seo_description | default: p.excerpt | strip_html | truncate: 120 }}</p>
+        <span class="card__date">{{ p.date | date: "%d.%m.%Y" }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

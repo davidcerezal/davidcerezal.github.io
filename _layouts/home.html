@@ -1,13 +1,140 @@
 ---
-layout: archive
+layout: base
 ---
 
-{{ content }}
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="inicio">
+  <div class="hero__inner">
+    <p class="hero__kicker reveal">&gt; ./bienvenido.sh</p>
+    <h1 class="hero__title reveal">
+      <span class="grad">Del Mono</span><br>
+      al <span class="grad">Ordenador</span>
+    </h1>
+    <p class="hero__lead reveal">
+      Aupa! Soy <strong>David</strong> —
+      <span class="type" data-words="Context Engineer|Amante de la Historia|Escritor &amp; Fot&oacute;grafo|Techie &amp; Geek"></span>
+    </p>
+    <p class="hero__sub reveal">Escribo sobre <em>historia</em>, <em>IA</em>, <em>tecnolog&iacute;a</em> y cada una de mis nuevas pasiones.</p>
+    <div class="hero__actions reveal">
+      <a class="btn btn--primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn--ghost" href="{{ '/blog/' | relative_url }}">Ir al blog</a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#sobre" aria-label="Bajar">
+    <span></span>
+  </a>
+</section>
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<!-- ===================== SOBRE MÍ ===================== -->
+<section class="section" id="sobre">
+  <div class="section__head reveal">
+    <span class="section__num">01</span>
+    <h2 class="section__title">Sobre mí</h2>
+  </div>
+  <div class="about">
+    <div class="about__text">
+      <p class="reveal">Kaixo! Soy <strong>David</strong>, ingeniero de software con base en <strong>Bilbao</strong>. Hoy soy responsable del &aacute;rea tecnol&oacute;gica (<strong>CTO</strong>) en <strong>Itzarri EPSV</strong>, intentando siempre aportar mi grano de arena, pero hacerlo con un porqu&eacute;.</p>
+      <p class="reveal">Antes pas&eacute; por la investigaci&oacute;n en visi&oacute;n 3D e IA en <strong>TECNALIA</strong> y seis a&ntilde;os en <strong>Indexa Capital</strong> liderando equipos y escalando producto. Con el tiempo he ido moviendo el foco: de escribir c&oacute;digo a <strong>orquestar</strong>, entender el negocio y decidir el porqu&eacute; de las cosas.</p>
+      <p class="reveal">Creo que en la era de la <strong>IA</strong>, decir &laquo;software engineer&raquo; ya dice poco. Lo que de verdad pesa es el <strong>contexto</strong>: el bagaje, la experiencia, saber leer e interpretar una situaci&oacute;n y tratar con personas. Me gusta pensar que soy un <strong>ingeniero de contexto</strong> &mdash; leo, interpreto y doy lo mejor de m&iacute; para llegar al mejor resultado.</p>
+      <p class="reveal">Y luego est&aacute; lo que me mueve de verdad: la <strong>historia</strong>, la escritura y la fotograf&iacute;a. Curiosamente, en un mundo de IA capaz de generarlo casi todo, cada vez me interesa m&aacute;s leer una redacci&oacute;n del siglo XV que otra l&iacute;nea de c&oacute;digo.</p>
+    </div>
+    <div class="about__skills reveal">
+      <h3>Lo que hago &amp; me mueve</h3>
+      <ul class="chips">
+        <li>Context Engineering</li><li>Estrategia &amp; Negocio</li><li>Liderazgo</li>
+        <li>IA</li><li>Fintech</li><li>Historia</li>
+        <li>Escritura</li><li>Fotograf&iacute;a</li><li>Filosof&iacute;a</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-{% for post in paginator.posts %}
-  {% include archive-single.html %}
-{% endfor %}
+<!-- ===================== COSAS QUE HAGO ===================== -->
+<section class="section" id="proyectos">
+  <div class="section__head reveal">
+    <span class="section__num">02</span>
+    <h2 class="section__title">Cosas que hago</h2>
+  </div>
+  <p class="section__intro reveal">Proyectos personales que viven fuera de este blog: historia, escritura y fotograf&iacute;a &mdash; lo que cada vez me tira m&aacute;s.</p>
+  <div class="cards">
 
-{% include paginator.html %}
+    <!-- Historia de Cea -->
+    <a class="card reveal" href="https://historiacea.github.io/" target="_blank" rel="noopener">
+      <div class="card__img card__img--logo" style="--logo:url('{{ '/assets/images/faviconcea.png' | relative_url }}')"></div>
+      <div class="card__body">
+        <div class="card__tags"><span>historia</span><span>proyecto</span></div>
+        <h3 class="card__title">Historia de Cea</h3>
+        <p class="card__excerpt">Recopilar y contar la historia de mi pueblo, Cea. En la era de la IA, leer e interpretar redacciones de siglos atr&aacute;s es lo que m&aacute;s me engancha.</p>
+        <span class="card__more">Visitar ↗</span>
+      </div>
+    </a>
+
+    <!-- pic.dave -->
+    <a class="card reveal" href="https://www.instagram.com/pic.dave/" target="_blank" rel="noopener">
+      <div class="card__img card__img--emoji" data-emoji="📷"></div>
+      <div class="card__body">
+        <div class="card__tags"><span>fotograf&iacute;a</span><span>instagram</span></div>
+        <h3 class="card__title">pic.dave</h3>
+        <p class="card__excerpt">Mi cuaderno visual: fotograf&iacute;a, escritura y lo que voy viendo por ah&iacute;. La parte m&aacute;s personal.</p>
+        <span class="card__more">Ver en Instagram ↗</span>
+      </div>
+    </a>
+
+    <!-- Tortillas -->
+    <a class="card reveal" href="https://linktr.ee/pic.dave" target="_blank" rel="noopener">
+      <div class="card__img card__img--emoji" data-emoji="🥘"></div>
+      <div class="card__body">
+        <div class="card__tags"><span>proyecto serio</span></div>
+        <h3 class="card__title">Mis mejores tortillas</h3>
+        <p class="card__excerpt">Ranking en curso de las mejores tortillas de patata, con criterio de buen patatero de Vitoria. Sin prisa, pero sin pausa.</p>
+        <span class="card__more">Ver el ranking ↗</span>
+      </div>
+    </a>
+
+    <!-- Linktree -->
+    <a class="card reveal" href="https://linktr.ee/pic.dave" target="_blank" rel="noopener">
+      <div class="card__img card__img--emoji" data-emoji="🔗"></div>
+      <div class="card__body">
+        <div class="card__tags"><span>enlaces</span></div>
+        <h3 class="card__title">Todo en un sitio</h3>
+        <p class="card__excerpt">Mi Linktree: todo lo que hago y comparto, reunido en un &uacute;nico enlace.</p>
+        <span class="card__more">Abrir Linktree ↗</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== DEL BLOG ===================== -->
+<section class="section" id="blog">
+  <div class="section__head reveal">
+    <span class="section__num">03</span>
+    <h2 class="section__title">Del blog</h2>
+    <a class="section__link" href="{{ '/blog/' | relative_url }}">Ver todo →</a>
+  </div>
+  <p class="section__intro reveal">Mis apuntes de tech e IA: estudios, cacharreos y tutoriales.</p>
+
+  <div class="postlist">
+    {% for p in site.posts limit: 6 %}
+    <a class="postrow reveal" href="{{ p.url | relative_url }}">
+      <span class="postrow__date">{{ p.date | date: "%d.%m.%Y" }}</span>
+      <span class="postrow__title">{{ p.title }}</span>
+      <span class="postrow__arrow">→</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section class="section section--contact" id="contacto">
+  <div class="contact reveal">
+    <span class="section__num">04</span>
+    <h2 class="contact__title">¿Hablamos?</h2>
+    <p class="contact__lead">Si quieres comentar algo, proponer un proyecto o simplemente saludar, escríbeme. No suelo tardar más de un día.</p>
+    <a class="btn btn--primary btn--lg" href="mailto:cerezal.david@gmail.com">Enviar un email</a>
+    <div class="contact__social">
+      <a href="https://github.com/davidcerezal" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/davidcerezal/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/pic.dave/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
